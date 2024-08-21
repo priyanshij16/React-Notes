@@ -1,0 +1,30 @@
+ Link Vs Route :
+Route tag renders a component based on URL. 
+        <Route path="/" element={<Home />} />
+While Link tag creates navigation links, ensure seamless transition .
+
+
+#### useHistory Hook::
+part of react Router, programmatic way to naviagte between the diff pages.
+useHistory() hook provides access to history object, which allow to see navigation history.
+The `history` object provides several methods that you can use to manipulate the navigation history:
+
+- push(path, [state]): Adds a new entry to the history stack and navigates to the specified path. 
+
+- go(n): Moves the pointer in the history stack by `n` entries. A positive `n` goes forward, and a negative `n` goes backward.
+
+- goBack(): Equivalent to `go(-1)`, it navigates back to the previous entry in the history stack.
+
+    CODE: 
+ const history = useHistory();
+    useEffect(() => {
+        console.log("MemoryRouter - initial location: ", history.location);
+        history.listen((location) => {
+          console.log("MemoryRouter - changed location: ", location);
+          setCurrentPath(location.pathname);
+        });
+      }, [history]);
+
+###### useLocation Hook ::
+
+
