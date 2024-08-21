@@ -1,0 +1,60 @@
+React router DOM is a library which helps for routing in a Single Page Application(SPA).
+
+So now , what is SPA? 
+consider example of twitter or Youtube or any social media platform when you render one componet to another component .
+or when you clicks on another Youtube vedio the page will not reload >>> that terms to be as SPA.
+
+React Router define multiple routes, each corresponding to different components, and enables navigation between them without reloading the entire page.
+
+When we use <a> (anchor tag) to redirect any link it will reload the page which isn't consider to be a good practice.
+
+
+BroswerRouter Vs CreateBrowserRouter ::
+The routers do not support the data APIs:<BrowserRouter>
+while CreateBrowserRouter supports to fetch data from API.
+
+   LET'S DIVE INTO THE CODE :)
+
+// App.js                                                      STATIC ROUTING 
+
+function App() {
+  return (
+   <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="blogs" element={<Blogs />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="*" element={<NoPage />} />
+        </Route>
+      </Routes>
+  );
+}
+
+       NOTE : I have used index in home instead of giving path . 
+      It's because index is used to set by default routing .
+      * -> This depicts error 404 page (undefined URL hit)
+
+                                                           DYNAMIC ROUTING
+ <Routes>
+        <Route path="/user/:id" element={<UserProfile />} />
+      </Routes>
+
+
+// UserProfile.js
+import React from "react";
+import { useParams } from "react-router-dom";
+
+function UserProfile() {
+  const { id } = useParams();
+
+  return (
+    <div>
+      <h2>User Profile</h2>
+      <p>User ID: {id}</p>
+    </div>
+  );
+}
+
+In this example, visiting /user/123 would render the UserProfile component with id set to 123
+
+
