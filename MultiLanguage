@@ -1,0 +1,49 @@
+MultiLanguage :
+npm i  react-i18next based on i18next
+
+The core i18next library that handles internationalization.
+Create file : i18n.js
+
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
+import HttpApi from 'i18next-http-backend'
+import LanguageDetector from 'i18next-browser-languagedetector';
+
+const supportedLngs = ['en', 'fr', 'de', 'es', 'da','fr-CA']; // or any other language 
+
+i18n
+  .use(HttpApi) // used to load data 
+  .use(LanguageDetector)   // detects the current language
+  .use(initReactI18next)
+  .init({
+    supportedLngs: supportedLngs,
+    fallbackLng: 'en',   // by default language is enn 
+    debug: false,
+    // Options for language detector
+    detection: {
+      order: ['path', 'cookie', 'htmlTag'],
+      caches: ['cookie'],
+    },
+    resources:supportedLngs.reduce((acc, lang) => {
+      acc[lang] = {
+        translation: require(`./languages/${lang}/translation.json`),
+      };
+      return acc;
+    }, {})
+  });
+
+########### Now go in Language folder >> translation.json(en)
+Also I am using smartCat Tool for Language Translation 
+Moreover in my project i'hve implemented mappingMiddleware.json 
+{
+  "hello": "Hello",
+  "cancel": "Cancel",
+  "continue": "Comtinue"
+}
+
+fr/translation.json
+{
+  "hello": "Salut",
+  "cancel": "Annuler",
+  "continue": "Continuez"
+}
