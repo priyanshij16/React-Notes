@@ -1,0 +1,43 @@
+Topic : webSocket, Api Integration, useEffect ,Redux 
+>> Redux (react)
+Redux is a library that use for states to access globally.
+Like suppose there is a state(component) using in multiple files and again n again I want to change it's state.
+
+So , basically it's a State managment Library also to manage the data of the application.
+We have 3 things : Store, Reducer, Action 
+
+'Store ' − The central place to store the state of the application. It holds the entire state tree of the application and provides methods to dispatch actions, 
+subscribe to changes, and access the current state.
+
+'Reducer' : A reducer is a pure function that takes the current state and an action as arguments and returns a new state based on the action type
+In this we have 3 FormStates : Pending , fulfuill, Rejected.
+Also reducer are of 2 type reducer , extraReducer.
+     
+      [fetchWorkItemName.fulfilled.toString()]: (state, { payload }) => {
+        state.workItemNameList = payload;
+        state.workItemNameFormState = fulfilledState();
+        return state;
+      },
+      [fetchWorkItemName.rejected.toString()]: (state, { payload }) => {
+        state.workItemNameFormState = rejectedState(payload?.message);
+        return state;
+      },
+      [fetchWorkItemName.pending.toString()]: (state, { payload }) => {
+        state.workItemNameFormState = pendingState();
+        return state;
+      }
+
+'Action': An action is a plain JavaScript object describes a change or event in the application.
+Actions have a type field  and also have a payload field that carries additional data.
+// It's a Example'
+export const storeWorkItem = createAsyncThunk(
+  "device/storeWorkItem",
+  async (_args:any, thunkAPI) => {
+    try {
+      const data = await workService.storeWorkItem(_args)
+      if (data) {   return data;
+   } else 
+        return thunkAPI.rejectWithValue(data);
+    } catch (e: any) {
+      return thunkAPI.rejectWithValue(e.response.data);
+);
