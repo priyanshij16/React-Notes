@@ -1,0 +1,42 @@
+                                          Hooks 
+What is Hooks?
+Hooks are fucntion that enable functional compoenents to use state and lifecycle features .
+I'll cover useState(), useEffect(), useContext() Hooks as these are major hooks and most used in React Projects.
+
+1. useState():
+allows to add state and it helps to change current state .
+ allowing them to keep track of data that changes over time.
+   [count, setCount] = useState(0);
+<div> 
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+</div>
+
+2. useEffect():
+The useEffect hook is used to perform side effects in your functional components, such as fetching data.
+IMP : Runs after every render by default, but can be controlled using dependencies.
+
+useEffect(() => {
+
+}, []); // when it is empty i.e it will render onyly once but if an array is passed to it. it will keep changing acc to 
+
+        const DataFetcher = () => {
+          const [data, setData] = useState();
+        
+          useEffect(() => {
+            // Fetch data from an API
+            fetch('https://api.example.com/data')
+              }, []); // Empty dependency array means this effect runs once after the initial render
+Note :
+Consider when we go to Home > About page and set some filter options then what ? after reloadung that page it will disapper that picture comes to concept of 
+Cleaning Up in useEffect
+just by adding clear() in return ()
+
+         return () => clearInterval(intervalId);
+          }, []); 
+ 
+                                          3. useContext
+Context provides a way to pass data through the component tree without having to pass props manually at every level. allows to consume value.
+also solves problem of prop drilling .
+
+
+
