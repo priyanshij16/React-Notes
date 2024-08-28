@@ -1,0 +1,35 @@
+As we can't access data from Object directly or perform operations on that.
+So there are multiple methods for it.
+
+------------------------------------------------------------------------
+1 . Dot Notation ()
+the popular one 
+Ex:
+const person = {
+  name: "John",
+};
+
+console.log(person.name); // Output: John
+
+---------------------------------------------------------------------
+2 . Bracket Notation (Suitable for when object contain spacing in key )
+
+const person ={
+first name='Panchi';
+}
+ console.log(person['first name']);
+---------------------------------------------------------------------
+3. Accessing All Keys and Values [ IMP]
+You can use Object.keys(), Object.values(), or Object.entries() to get all keys, values, or both
+
+const person = {
+  name: "John",
+  age: 30,
+  city: "New York"
+};
+
+console.log(Object.keys(person));   // Output: ["name", "age", "city"]
+console.log(Object.values(person)); // Output: ["John", 30, "New York"]
+console.log(Object.entries(person));// Output: [["name", "John"], ["age", 30], ["city", "New York"]]
+
+     NOTE : Object.entries used to return array then on that resulting array we can apply like .map() or .filter function.
