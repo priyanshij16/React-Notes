@@ -1,0 +1,17 @@
+! DOM ?
+
+Dom is Document Object Model which represents web page as tree like structure.
+Also allow js to dynamically access and manipulate the content.
+
+--------------------------------------------------------------------------
+Virtual Dom vs Dom:
+React uses vrtual DOM to efficiently update UI without re-render entire pages, which helps improve performance .
+    Note : There can be more than 1 virtual DOM  created by React .
+
+---------------------------------------------------
+React Components :
+Components are reusable building blocks for creating UI.
+
+
+
+
