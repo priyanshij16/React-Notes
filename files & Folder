@@ -1,0 +1,41 @@
+ALL About Files and Folder in React :
+
+Q1 what is npm?
+
+ans- Node pkg Manager , npm job is to create node_modules folder which helps to run appplication.
+Moreover this manages all library and dependency.
+ex: Babel (libray) is a JS library used to convert code into JS code.
+------------------------------------------------------------------------------------------------
+
+Q2 What is use of Public folder?
+Ans- 
+All static content or file which are directly served to Browser like img, Fonts, index.html.
+ Src- used to store all code of application
+------------------------------------------------------------------------------------------------
+
+Q3 Use of index.html ?
+Ans -
+As we know React is SPA so all the components are placed here .
+div id='root'.
+also pass components to App.js.
+
+React Dom: Js library which convert components to actual Browser DOM.
+when application starts or to run then 'root' ele is replaced by components.
+
+------------------------------------------------------------------------------------------------
+
+Q4  how actual react app works ?
+Ans-
+
+https://medium.com/@ruchivora16/react-how-react-works-under-the-hood-9b621ee69fb5
+Ui --------Rqst----------
+
+
+Reconciliation
+Reconciliation is a key feature of React that efficiently updates the DOM by only making necessary changes. 
+
+
+
+
+
+
