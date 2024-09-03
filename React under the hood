@@ -1,0 +1,17 @@
+React under the Hood :
+
+A Catch in Reconcilliation:
+
+Ex:'
+<div className="class-1">
+	<p>I did not change</p>
+</div> '
+If you change the jsx like below:
+
+'<p className="class-1">
+	<p>I did not change</p>  </p>'
+
+If the parent element has been change then Dom will destroy all respective childern and recreate it from top to bottom.
+it uses cleaups() function which are define in return { } of useEffect.
+
+
