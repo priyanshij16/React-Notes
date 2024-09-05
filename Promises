@@ -1,0 +1,58 @@
+what are promises?
+Promises are objects that represent the eventual completion of an asynchronous operation and its resulting value.
+states: pending, fulfill(resolves) , Rejected.
+
+Types of Promises:
+
+1.                                      Immideate resolves Promise
+A promise that resolves immediately without any asynchronous operation.
+
+let promise = Promise.resolve("Resolved instantly");
+promise.then(value => console.log(value)); // "Resolved instantly"
+
+---------------------------------------------------------------------------------------------------------------------------
+2                                           Chained Promise :
+which constain multiple then , each then resolves a promise which resolve or reject .
+let promise = Promise.resolve(5);
+promise
+  .then(value => value * 2) // 10
+  .then(value => value + 10) 
+  .then(value => console.log(value)); // 20
+---------------------------------------------------------------------------------------------------------------------------
+
+3.                                            Promise.all() :
+which executes multiple promises in parallel and resolves when all promises are fulfill.
+
+  Promise.all( [Promises.resolves(1), promise.resolves(2)  ] )
+ .then(values =>{ console.log(values) )} // 1 2
+
+---------------------------------------------------------------------------------------------------------------------------
+4                                                     Promise.race
+
+Resolves or rejects as soon as one of the promises in the array resolves or rejects, whichever happens first.
+
+Promise.race([
+  new Promise(resolve => setTimeout(() => resolve("First!"), 100)),
+  new Promise(resolve => setTimeout(() => resolve("Second!"), 200))
+]).then(value => console.log(value)); // "First!"
+
+---------------------------------------------------------------------------------------------------------------------------
+5 .                                                    Promise.allSettled
+
+Waits for all promises to settle (either resolve or reject) and returns an array of results. 
+Unlike Promise.all(), it doesn’t reject if any promise fails.
+
+Promise.allSettled([Promise.resolve("Success"), Promise.reject("Error")])
+  .then(results => console.log(results));
+
+---------------------------------------------------------------------------------------------------------------------------
+
+                                                        Promise.any
+
+Resolves as soon as one of the promises resolves, ignoring rejections. If all promises are rejected, it returns a rejection.
+
+Promise.any([
+  Promise.reject("Failed"),
+  Promise.resolve("Success"),
+  Promise.reject("Error")
+]).then(value => console.log(value)); // "Success"
