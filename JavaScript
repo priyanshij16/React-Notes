@@ -1,0 +1,8 @@
+Temporal Dead Zone :
+In case of let & const when we try to hoist the variables , we got a Refrence Error . 
+That concept is called Temporal Dead Zone .
+
+ex :
+print(x);
+var x= 12;
+
