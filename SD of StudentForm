@@ -1,0 +1,67 @@
+import { useState } from "react";
+const UserForm = () => {
+  //
+  const [name, setName] = useState("");
+  const [age, setAge] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPass] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault(); // used to prevent default Behaviour  of form submission
+    const formData = {
+      name,
+      age,
+      email,
+      password,
+    };
+    console.log("form data", formData);
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <div>
+        <label htmlFor="name">Name: </label>
+        <input
+          type="text"
+          name="name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
+        />
+      </div>
+      <div>
+        <label htmlFor="age">Age: </label>
+        <input
+          type="number"
+          name="age"
+          value={age}
+          onChange={(e) => setAge(e.target.value)}
+          required
+        />
+      </div>
+      <div>
+        <label>Email: </label>
+        <input
+          type="email"
+          id="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+      </div>
+      <div>
+        <label htmlFor="password">Password: </label>
+        <input
+          type="password"
+          id="password"
+          value={password}
+          onChange={(e) => setPass(e.target.value)}
+          required
+        />
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  );
+};
+
+export default UserForm;
